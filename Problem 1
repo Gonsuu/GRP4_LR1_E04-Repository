@@ -7,5 +7,3 @@ print("Mode:", statistics.mode(numberlist))
 print("Median:", statistics.median(numberlist))
 
 print("Mean:", statistics.mean(numberlist))
-
-![image](https://github.com/user-attachments/assets/07a3e969-c287-4dda-892a-b5fa06ddbdf7)
