@@ -1,39 +1,32 @@
 def main():
+    filename = input("Enter the name of the file: ")
+
     try:
-        
-        filename = input("Enter the filename: ")
-        
-    
         with open(filename, 'r') as file:
             lines = file.readlines()
-        
-        
-        num_lines = len(lines)
-        print(f"The file contains {num_lines} lines.")
-        
+
+        lines = [line.strip() for line in lines]
+
+        print(f"Success! Your file contains {len(lines)} lines.")
+
         while True:
-            
-            line_number = input(f"Enter a line number (1-{num_lines}, or 0 to quit): ")
-            
-            
-            if not line_number.isdigit():
+            try:
+                line_number = int(input("Enter the line number you want to view (0 to exit): "))
+
+                if line_number == 0:
+                    print("Thank you for using the file navigator. Goodbye!")
+                    break
+
+                if 1 <= line_number <= len(lines):
+                    print(f"[Line {line_number}] {lines[line_number - 1]}")
+                else:
+                    print(f"Invalid choice. Please choose a number between 1 and {len(lines)}.")
+
+            except ValueError:
                 print("Please enter a valid number.")
-                continue
-            
-            line_number = int(line_number)
-            
-            if line_number == 0:
-                print("Exiting the program.")
-                break
-            elif 1 <= line_number <= num_lines:
-                
-                print(f"Line {line_number}: {lines[line_number - 1].strip()}")
-            else:
-                print(f"Invalid line number. Please enter a number between 1 and {num_lines}.")
+
     except FileNotFoundError:
-        print("The file does not exist. Please check the filename and try again.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"Error: The file '{filename}' could not be found. Please check the name and try again.")
 
 if __name__ == "__main__":
     main()
