@@ -1,0 +1,18 @@
+import statistics
+
+def mode(numbers):
+    return statistics.mode(numbers)
+
+def median(numbers):
+    return statistics.median(numbers)
+
+def mean(numbers):
+    return statistics.mean(numbers)
+
+mylist = [420, 69, 52, 911, 4, 1738, 23]
+
+print("Mode:", statistics.mode(mylist))
+
+print("Median:", statistics.median(mylist))
+
+print("Mean:", statistics.mean(mylist))
